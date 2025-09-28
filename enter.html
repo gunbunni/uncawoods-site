@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Into the Woods</title>
 <style>
-  /* Load custom fonts */
+  
   @font-face {
     font-family: 'Cinta';
     src: url('fonts/cinta.ttf') format('truetype');
@@ -20,7 +20,7 @@
     src: url('fonts/DotTricks.ttf') format('truetype');
   }
 
-  /* Reset & global styles */
+  
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Ranforty', Arial, sans-serif;
@@ -29,7 +29,7 @@
     position: relative;
   }
 
-  /* Background */
+  
   .background {
     position: absolute;
     top: 0; left: 0;
@@ -37,25 +37,24 @@
     background: url('images/entrybg.png') center/cover no-repeat;
   }
 
-  /* Navigation container */
+  
   .nav-container {
     position: relative;
     z-index: 10;
     padding: 50px 60px;
     display: flex;
     align-items: center;
-    gap: 40px; /* Space between title and links */
+    gap: 40px; 
   }
 
-  /* Title (Into the Woods) */
+  
   .title {
     font-family: 'Cinta', Arial, sans-serif;
-    font-size: 40px; /* Slightly bigger than nav links */
-    color: #2c2c2c; /* Original color */
+    font-size: 40px; 
+    color: #2c2c2c; 
     user-select: none;
   }
 
-  /* Navigation links */
   .nav-links {
     display: flex;
     gap: 40px;
@@ -63,24 +62,24 @@
   }
   .nav-links a {
     text-decoration: none;
-    font-size: 32px; /* Increased font size */
+    font-size: 32px; 
     color: #2c2c2c;
     transition: all 0.3s ease;
     font-family: 'Ranforty', Arial, sans-serif;
   }
-  /* Home link unclickable */
+  
   .nav-links a.home {
     color: #dc143c;
     border-bottom: 2px solid #dc143c;
     pointer-events: none;
   }
-  /* Hover effect for other links */
+
   .nav-links a:not(.home):hover {
     color: #00008B;
     transform: scale(1.1);
   }
 
-  /* Red accent area */
+  /* red accent, go in and make animated in ae lol. once after effects works */
   .red-accent {
     position: absolute;
     bottom: 0; right: 0;
@@ -91,7 +90,7 @@
     border-radius: 20px 0 0 0;
   }
 
-  /* Course code & student names in bottom-right corner */
+  
   .accent-content {
     position: absolute;
     bottom: 50px;
@@ -112,7 +111,7 @@
     font-family: 'Ranforty', Arial, sans-serif;
   }
 
-  /* Responsive */
+ 
   @media (max-width: 768px) {
     .nav-container {
       padding: 30px 20px;
@@ -145,10 +144,10 @@
 
 <div class="red-accent">
   <div class="accent-content">
-    <div class="course-code">NM430</div>
+    <div class="course-code">NM438</div>
     <div class="student-names">
       Joy, Max, Jae,<br>
-      Ol, Adam
+      Ollie, Adam
     </div>
   </div>
 </div>
