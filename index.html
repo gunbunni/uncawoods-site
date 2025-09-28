@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Into The Woods</title>
+
+<style>
+  @font-face {
+    font-family: 'Cinta';
+    src: url('fonts/cinta.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Ranforty';
+    src: url('fonts/Ranforty\ Rx.otf') format('opentype');
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 500vh;
+    overflow-x: hidden;
+    background: url('images/backgroundcap.png') no-repeat top center;
+    background-size: cover;
+    color: #2c2c1f;
+    font-family: 'Cinta', serif;
+  }
+
+  .container {
+    position: relative;
+    height: 500vh;
+    text-align: center;
+  }
+
+  .title, .bottom-link {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    z-index: 4;
+  }
+
+  .title { 
+    top: 120px; 
+    font-size: 4rem;
+    font-family: 'Cinta', serif;
+    user-select: none; /* prevent selection */
+  }
+
+  .bottom-link { 
+    bottom: 50px; 
+    font-size: 3rem; 
+    font-family: 'Cinta', serif;
+    opacity: 0; 
+    transition: opacity 0.5s;
+  }
+
+  .bottom-link a {
+    color: #2c2c1f;
+    text-decoration: underline;
+    display: inline-block;
+    transition: transform 0.5s ease, color 0.5s ease;
+  }
+
+  .bottom-link a:hover {
+    transform: scale(1.1) skew(-5deg, 2deg);
+    color: #174d00;
+  }
+
+  .branch {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 110%;
+    height: auto;
+    will-change: transform;
+  }
+
+  #branch1, #branch2, #branch3, #branch4 { z-index: 3; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="title" id="title">Into the Woods</div>
+
+    <img src="images/branch1top.png" class="branch" id="branch1">
+    <img src="images/branch2 (2).png" class="branch" id="branch2">
+    <img src="images/branch3 (2).png" class="branch" id="branch3">
+    <img src="images/branch4.png" class="branch" id="branch4">
+
+    <div class="bottom-link" id="bottomLink">
+      <a href="enter.html">Enter the Woods</a>
+    </div>
+  </div>
+
+  <script>
+    const branches = [
+      {el: document.getElementById("branch1"), baseY: 250, swaySpeed: -0.05, swayAmount: 5, swayFrequency: 0.0008}, 
+      {el: document.getElementById("branch2"), baseY: 300, swaySpeed: 0.08, swayAmount: 8, swayFrequency: 0.0006},
+      {el: document.getElementById("branch3"), baseY: 350, swaySpeed: -0.12, swayAmount: 6, swayFrequency: 0.0009},
+      {el: document.getElementById("branch4"), baseY: 400, swaySpeed: 0.15, swayAmount: 4, swayFrequency: 0.0007}
+    ];
+
+    const bottomLink = document.getElementById("bottomLink");
+    const title = document.getElementById("title");
+    let startTime = null;
+
+    function animate(time) {
+      if (!startTime) startTime = time;
+      const elapsed = time - startTime;
+      const scrollY = window.scrollY;
+
+      // Animate branches
+      branches.forEach((branch, i) => {
+        const swayX = Math.sin(elapsed * branch.swayFrequency) * branch.swayAmount;
+        const verticalOffset = branch.baseY + scrollY * (branch.swaySpeed + i * 0.005);
+        branch.el.style.transform = `translate(calc(-50% + ${swayX}px), ${verticalOffset}px)`;
+      });
+
+      // Linear fade-out title
+      const titleRect = title.getBoundingClientRect();
+      if (titleRect.bottom > 0) {
+        const fadeRange = titleRect.height;
+        const distanceOut = Math.max(0, -titleRect.top);
+        const opacity = 1 - (distanceOut / fadeRange);
+        title.style.opacity = Math.max(Math.min(opacity, 1), 0);
+      } else {
+        title.style.opacity = 0;
+      }
+
+      // Linear fade-in bottom link
+      const linkRect = bottomLink.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const fadeStart = windowHeight - 100;
+      const fadeRangeLink = 150;
+
+      if (linkRect.top < fadeStart + fadeRangeLink) {
+        const opacity = 1 - ((linkRect.top - fadeStart) / fadeRangeLink);
+        bottomLink.style.opacity = Math.max(Math.min(opacity, 1), 0);
+      } else {
+        bottomLink.style.opacity = 0;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
+
+
+
+
+
+

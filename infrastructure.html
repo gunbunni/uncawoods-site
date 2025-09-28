@@ -1,0 +1,193 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure</title>
+<style>
+  @font-face { font-family: 'Cinta'; src: url('fonts/cinta.ttf') format('truetype'); }
+  @font-face { font-family: 'Ranforty'; src: url('fonts/Ranforty Rx.otf') format('opentype'); }
+  @font-face { font-family: 'Dot'; src: url('fonts/DotTricks.ttf') format('truetype'); }
+  @font-face { font-family: 'Antique'; src: url('fonts/RomanAntique.ttf') format('truetype'); }
+  @font-face { font-family: 'silent'; src: url('fonts/SLNTHLN.TTF') format('truetype'); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Ranforty', Arial, sans-serif; height: 100vh; overflow: hidden; position: relative; }
+
+  .background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('images/infabg.png') center/cover no-repeat; }
+
+  .nav-container { position: relative; z-index: 10; padding: 50px 60px; display: flex; align-items: center; gap: 40px; }
+  .title { font-family: 'Cinta', Arial, sans-serif; font-size: 40px; color: #263079; user-select: none; }
+  .nav-links { display: flex; gap: 40px; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 32px; font-family: 'Ranforty', Arial, sans-serif; color: #263079; transition: all 0.3s ease; }
+  .nav-links a:hover { color: #00008B; transform: scale(1.1); }
+  .nav-links .current { color: #e1b502; border-bottom: 2px solid #e1b502; pointer-events: none; }
+
+  .info-block {
+    position: absolute; top: 150px; left: 100px; right: 520px; height: 65%;
+    padding: 10px 15px; overflow-y: auto; font-family: 'Antique', serif; font-size: 25px;
+    line-height: 1.6; color: #bdbcb8; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); z-index: 5;
+  }
+  .info-block h2 { font-family: 'silent', serif; font-size: 30px; margin: 15px 0 10px; color: #e1b502; letter-spacing: 3px; }
+  .info-block ul { margin-left: 20px; margin-bottom: 15px; }
+  .info-block li { margin-bottom: 8px; }
+  .info-block a { color: #e1b502; font-weight: bold; text-decoration: none; }
+  .info-block a:hover { text-decoration: underline; }
+  .learn-more { margin-top: 40px; }
+
+  .fact-block {
+    position: absolute;
+    bottom: 120px; 
+    right: 60px;
+    width: 440px;
+    height: 450px;
+    background: url('images/block.png') center/contain no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    color: #6d7888;
+    padding: 110px 20px 20px 20px; 
+    font-family: 'Antique';
+    font-size: 19px;
+    line-height: 1.5;
+    z-index: 5;
+  }
+
+  .fact-block p strong { font-weight: bold; }
+
+  /* Animal image moved to match fact block */
+  .bee-image {
+    position: absolute;
+    bottom: -20px; /* raised to align with new fact block position */
+    right: -20px;
+    width: 300px;
+    height: 300px;
+    background: center/contain no-repeat;
+    z-index: 6;
+  }
+
+  /* responsive */
+  @media (max-width: 1200px) { .info-block { right: 400px; } }
+  @media (max-width: 992px) { .info-block { right: 250px; left: 50px; } }
+  @media (max-width: 768px) {
+    .nav-container { padding: 30px 20px; flex-direction: column; align-items: flex-start; gap: 15px; }
+    .title { font-size: 28px; } .nav-links { gap: 20px; flex-wrap: wrap; } .nav-links a { font-size: 26px; }
+    .info-block { position: relative; top: auto; left: auto; right: auto; width: 90%; height: auto; margin: 20px auto; }
+    .fact-block { bottom: 100px; right: 5px; width: 80%; height: auto; padding: 70px 15px 15px 15px; }
+    .bee-image { bottom: 20px; right: -10px; width: 200px; height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="nav-container">
+  <div class="title">Into the Woods</div>
+  <nav class="nav-links">
+    <a href="enter.html">Home</a>
+    <a class="current">Infrastructure</a>
+    <a href="economics.html">Economics</a>
+    <a href="studentresearch.html">Student Research</a>
+  </nav>
+</div>
+
+<div class="info-block">
+  <p>UNC Asheville is facing serious financial and infrastructure challenges, but clearing 45 acres of the South Campus woods to build a $250 million stadium and mixed-use complex is not the right solution.</p>
+  <p>The woods are not just unused land. It provides real ecological, educational, and community value. They also reflect UNCA’s commitments to:</p>
+  <ul>
+    <li>Sustainability</li>
+    <li>Carbon neutrality</li>
+    <li>Academic excellence</li>
+  </ul>
+  <p>Protecting this forest is important, and there are better ways for UNCA to grow without losing such a valuable resource!</p>
+
+  <h2>1. Use Land That’s Already Cleared or Underutilized</h2>
+  <ul>
+    <li>Focus development on the 22-acre “Future Building Site” near Broadway, previously prepared for The Health Adventure museum.</li>
+    <li>Consider unused parking lots, athletic fields with expansion potential, or other disturbed areas for development instead of the forest.</li>
+  </ul>
+
+  <h2>2. Build Smarter Housing</h2>
+  <ul>
+    <li>Expand the existing residence halls upward instead of cutting down trees.</li>
+    <li>Add extra stories for affordable, high-density housing while keeping green space intact.</li>
+    <li>Use public-private partnerships to fund upgrades while keeping housing affordable and the woods protected.</li>
+  </ul>
+
+  <h2>3. Generate Revenue Without Destroying the Forest</h2>
+  <p>Turn the South Campus woods into a “Living Sustainability Campus” with:</p>
+  <ul>
+    <li>Trails</li>
+    <li>Outdoor classrooms</li>
+    <li>Eco-tourism programs</li>
+  </ul>
+  <p>Seek grants, donations, and corporate support for projects on:</p>
+  <ul>
+    <li>Climate resilience</li>
+    <li>Biodiversity</li>
+    <li>Education</li>
+  </ul>
+  <p>Host summer programs, conferences, and leadership initiatives that highlight the woods as a unique campus asset instead of cutting it down.</p>
+
+  <div class="learn-more">
+    <p><strong>Learn more:</strong><br>
+      <a href="https://www.saveuncawoods.org/why-this-matters/better-alternatives">Save UNCA Woods</a><br>
+      <a href="https://avlwatchdog.org/answer-man-uncas-plans-for-22-acre-future-building-site-overlook-road-intersection-lacks-sidewalk/">AVL Watchdog Article</a>
+    </p>
+  </div>
+</div>
+
+<div class="fact-block" id="factBlock"></div>
+<div class="bee-image" id="animalImage"></div>
+
+<script>
+  const animals = [
+    {name:"Bumblebee", scientific:"Bombus pensylvanicus", region:"Found all over NC", fact:"Very friendly and rarely sting", significance:"Very important pollinators", image:"images/animals/bumblebee.gif"},
+    {name:"Northern Long Eared Bat", scientific:"Myotis septentrionalis", region:"Found in most parts of NC", fact:"Hibernate underground in winter and live in tree cavities in summer.", significance:"Natural pest control", image:"images/animals/bat.gif"},
+    {name:"White-tailed Deer", scientific:"Odocoileus virginianus", region:"Statewide", fact:"Shakes its tail as a warning signal", significance:"Shapes forest growth patterns", image:"images/animals/deer.gif"},
+    {name:"Black Vulture", scientific:"Coragyps atratus", region:"Uncommon", fact:"They are quiet birds, unable to make noises outside of grunts and hisses.", significance:"Natures Clean up Crew", image:"images/animals/blackvulture.gif"},
+    {name:"Great Horned Owl", scientific:"Bubo virginianus", region:"Statewide", fact:"the largest owl species in North Carolina.", significance:"Top nocturnal predator", image:"images/animals/owl.gif"},
+    {name:"Monarch Butterfly", scientific:"Danaus plexippus", region:"Throughout NC, more common in WNC", fact:"Travel up to 100 miles a day when migrating", significance:"Each fall, thousands of Monarch butterflies pass through Asheville on their 2,000-mile journey to Mexico.", image:"images/animals/monarch.gif"},
+    {name:"American Black Bear", scientific:"Ursus americanus", region:"Western NC forests, sometimes found on the coast", fact:"Have been clocked at 35 miles per hour", significance:"Asheville has one of the highest rates of urban black bear encounters in the country", image:"images/animals/blackbear.gif"},
+    {name:"Firefly", scientific:"Lampyridae", region:"Statewide", fact:"Over 1,900 species of fireflies in the world", significance:"Insect control and Bioindicators", image:"images/animals/fireflyfinal.gif"},
+    {name:"Great Blue Heron", scientific:"Ardea herodias", region:"Statewide", fact:"They are one of North Carolina’s most frequently seen wading birds, living near environments such as shores and rivers. ", significance:"Bioindicator", image:"images/animals/heron.gif"},
+  ];
+
+  const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+
+  document.getElementById("factBlock").innerHTML = `
+    <p>
+      <strong>${randomAnimal.name}:</strong><br>
+      <strong>Scientific Name:</strong> <em>${randomAnimal.scientific}</em><br>
+      <strong>Region of NC:</strong> ${randomAnimal.region}<br>
+      <strong>Fun Fact:</strong> ${randomAnimal.fact}<br>
+      <strong>WNC significance:</strong> ${randomAnimal.significance}
+    </p>
+  `;
+
+  document.getElementById("animalImage").style.backgroundImage = `url('${randomAnimal.image}')`;
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
