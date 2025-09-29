@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,9 +12,12 @@
   @font-face { font-family: 'silent'; src: url('fonts/SLNTHLN.TTF') format('truetype'); }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Ranforty', Arial, sans-serif; height: 100vh; overflow: hidden; position: relative; }
+  html, body { font-family: 'Ranforty', Arial, sans-serif; height: 100%; min-height: 100%; overflow-x: hidden; }
 
-  .background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('images/studentresearch.png') center/cover no-repeat; }
+  body {
+    background: url('images/studentresearch.png') center/cover no-repeat fixed;
+    position: relative;
+  }
 
   .nav-container { position: relative; z-index: 10; padding: 50px 60px; display: flex; align-items: center; gap: 40px; }
   .title { font-family: 'Cinta', Arial, sans-serif; font-size: 40px; color: #263079; user-select: none; }
@@ -74,20 +77,25 @@
     z-index: 6;
   }
 
-  @media (max-width: 1200px) { .info-block { right: 400px; } }
-  @media (max-width: 992px) { .info-block { right: 250px; left: 50px; } }
+  /* Small screens */
   @media (max-width: 768px) {
+    html, body { height: auto; overflow-y: auto; }
     .nav-container { padding: 30px 20px; flex-direction: column; align-items: flex-start; gap: 15px; }
-    .title { font-size: 28px; } .nav-links { gap: 20px; flex-wrap: wrap; } .nav-links a { font-size: 26px; }
-    .info-block { position: relative; top: auto; left: auto; right: auto; width: 90%; height: auto; margin: 20px auto; }
-    .fact-block { bottom: 100px; right: 5px; width: 80%; height: auto; padding: 70px 15px 15px 15px; }
-    .bee-image { bottom: 20px; right: -10px; width: 200px; height: 200px; }
+    .title { font-size: 28px; } 
+    .nav-links { gap: 20px; flex-wrap: wrap; } 
+    .nav-links a { font-size: 26px; }
+    .info-block { position: relative; top: auto; left: auto; right: auto; width: 90%; margin: 20px auto; height: auto; }
+    .fact-block, .bee-image { display: none; }
+  }
+
+  /* Restore for larger screens */
+  @media (min-width: 769px) {
+    .info-block { position: absolute; top: 150px; left: 100px; right: 520px; height: 65%; }
+    .fact-block, .bee-image { display: flex; }
   }
 </style>
 </head>
 <body>
-
-<div class="background"></div>
 
 <div class="nav-container">
   <div class="title">Into the Woods</div>
@@ -95,7 +103,7 @@
     <a href="enter.html">Home</a>
     <a href="infrastructure.html">Infrastructure</a>
     <a href="economics.html">Economics</a>
-   <a class="current">Student Research</a>
+    <a class="current">Student Research</a>
   </nav>
 </div>
 
@@ -161,5 +169,6 @@
 
 </body>
 </html>
+
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,9 +12,12 @@
   @font-face { font-family: 'silent'; src: url('fonts/SLNTHLN.TTF') format('truetype'); }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Ranforty', Arial, sans-serif; height: 100vh; overflow: hidden; position: relative; }
+  html, body { font-family: 'Ranforty', Arial, sans-serif; height: 100%; min-height: 100%; overflow-x: hidden; }
 
-  .background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('images/economics.png') center/cover no-repeat; }
+  body {
+    background: url('images/economics.png') center/cover no-repeat fixed;
+    position: relative;
+  }
 
   .nav-container { position: relative; z-index: 10; padding: 50px 60px; display: flex; align-items: center; gap: 40px; }
   .title { font-family: 'Cinta', Arial, sans-serif; font-size: 40px; color: #263079; user-select: none; }
@@ -35,6 +38,7 @@
     letter-spacing: 3px; 
     color: #c57900; 
   }
+  .info-block h3 { font-family: 'silent', serif; font-size: 26px; margin: 12px 0 8px; color: #c57900; }
   .info-block ul { margin-left: 20px; margin-bottom: 15px; }
   .info-block li { margin-bottom: 8px; }
   .info-block a { color: #a56c03; font-weight: bold; text-decoration: none; }
@@ -73,20 +77,25 @@
     z-index: 6;
   }
 
-  @media (max-width: 1200px) { .info-block { right: 400px; } }
-  @media (max-width: 992px) { .info-block { right: 250px; left: 50px; } }
+  /* hide fact and animal gifs on small screens */
   @media (max-width: 768px) {
+    html, body { height: auto; overflow-y: auto; }
     .nav-container { padding: 30px 20px; flex-direction: column; align-items: flex-start; gap: 15px; }
-    .title { font-size: 28px; } .nav-links { gap: 20px; flex-wrap: wrap; } .nav-links a { font-size: 26px; }
-    .info-block { position: relative; top: auto; left: auto; right: auto; width: 90%; height: auto; margin: 20px auto; }
-    .fact-block { bottom: 100px; right: 5px; width: 80%; height: auto; padding: 70px 15px 15px 15px; }
-    .bee-image { bottom: 20px; right: -10px; width: 200px; height: 200px; }
+    .title { font-size: 28px; } 
+    .nav-links { gap: 20px; flex-wrap: wrap; } 
+    .nav-links a { font-size: 26px; }
+    .info-block { position: relative; top: auto; left: auto; right: auto; width: 90%; margin: 20px auto; height: auto; }
+    .fact-block, .bee-image { display: none; }
+  }
+
+  /* restore look on larger screens */
+  @media (min-width: 769px) {
+    .info-block { position: absolute; top: 150px; left: 100px; right: 520px; height: 65%; }
+    .fact-block, .bee-image { display: flex; }
   }
 </style>
 </head>
 <body>
-
-<div class="background"></div>
 
 <div class="nav-container">
   <div class="title">Into the Woods</div>
@@ -99,11 +108,104 @@
 </div>
 
 <div class="info-block">
-  <h2> Header</h2>
-  <p>Placeholder paragraph. Replace this with own research.</p>
+  <h2><a href="https://new.unca.edu/asheville-2030/asheville-2030-fact-sheet/">Where's The Money?</a></h2>
+
+  <p>
+    A 2-phase developmental plan of UNCA's South Campus and Broadway Street areas are beginning, with rising concerns
+    of not only the environmental impacts, but as well as speculation with the projected "$46 million projected over
+    30 years" while leasing the land for $250 million. This is due to the university's current dire straits.
+  </p>
+
+  <p>
+    $6 million budget deficit stemming from enrollment decline over the past 5 years, "long-standing budgetary
+    practices distorted financial assumptions and modeling. That prevented the University from identifying the scope
+    of these challenges sooner."
+  </p>
+
+  <h2>Is It Beneficial?</h2>
+
+  <p>
+    A few questions have been raised in order to address the consequences of this project, and were listed on the 
+    <a href="https://new.unca.edu/millennial-campus/">UNCA Millennial Campus</a> webpage, one of those being
+    <b><i>"Will this divert money away from academic programs or student services?"</i></b>
+  </p>
+
+  <q>
+    No. The project does not impact academic budgets. It allows the University to grow non-tuition revenue, easing
+    reliance on state funding and tuition while supporting the University’s long-term mission.
+  </q>
+
+  <p>
+    This testament was also echoed when Van Noort was interviewed by News 13, stating,
+    <q>
+      'Our educational mission is dependent upon us having students,' she said. 'Being able to attract students here
+      and provide them with a comfortable and vibrant living experience is part of that mission.'
+    </q>
+  </p>
+
+  <p><b>Though this plan is being contested...</b></p>
+
   <ul>
-    <li>Bullet point example</li>
-    <li>Another key point</li>
+    In 2023, the most popular Bachelors Degree concentrations at University of North Carolina at Asheville, as stated
+    by DATAUSA, were:
+    <li>General Psychology (80 degrees)</li>
+    <li>Environmental Studies (59 degrees)</li>
+    <li>General English Language & Literature (48 degrees)</li>
+  </ul>
+
+  <p>
+    From 2018 to 2023, the average for the amount of Environmental Studies degrees awarded was 60.33 repeating and for
+    each year, ES was ranked amongst the top three degrees averaging more than <b>%6</b> of total degrees given.
+    <br><br>
+    Though the aim was to lessen the stress of using tuition to focus on the current financial gap, there are fears
+    this move could be creating more problems than solutions, especially considering the university <a
+      href="https://tinyurl.com/fhryusbe">has already cut 4 of the 27 programs and curtailed a fifth.</a>
+  </p>
+
+  <p>
+    The financial problems of UNCA are not unique to this university alone, though it is through the actions and
+    lack thereof of the university which leads to those affected to speak up:
+  </p>
+
+  <q>
+    David Clarke, a biology professor who has taught at UNCA for over two decades, has brought his field biology
+    students into the forest for years, using it as a rare and accessible example of habitat in an urban area.
+    'It’s my best teaching,' Clarke said. 'That doesn’t happen in the classroom. In the field, students build
+    camaraderie, and we get to know each other. It’s what I should be doing.'
+  </q>
+
+  <p>
+    As recorded by News13, he later goes on to state that,
+    <q>
+      'This isn’t a stadium for UNC Asheville’s teams, it’s a private project,' he said. 'It doesn’t serve our
+      academic mission. And market-rate housing doesn’t help our students or staff, who are already priced out of this
+      city.'
+    </q>
+  </p>
+
+  <p>
+    More information on Clarke's statement as well as Van Noort's can be found 
+    <a href="https://tinyurl.com/yw32xufz">here</a>, and UNCA's statistics 
+    <a href="https://datausa.io/profile/university/university-of-north-carolina-at-asheville">here</a>.
+  </p>
+
+  <h2>Outside the Sphere but Important Nonetheless</h2>
+  <p>
+    UNCA’s woods aren’t the largest attraction in town in comparison to the Blue Ridge Parkway, Pisgah, etc., but
+    they’re part of what makes Asheville appealing to tourists and students who want a walkable, wooded, eco-conscious
+    town.
+  </p>
+
+  <h3>The Importance of Tourism for Asheville</h3>
+  <ul>
+    <li><a href="https://wildwnc.org/2024/07/wnc-nature-center-economic-impact-report/">WNC's Nature Center</a></li>
+    <li><a href="https://www.ashevillecvb.com/3bvisitoreconomicimpact2023/">Visitor Contribution Towards Buncombe County Economy</a></li>
+  </ul>
+
+  <h3>Economic Benefits of Public Greenspaces</h3>
+  <ul>
+    <li><a href="https://www.americantrails.org/resources/the-business-of-trails-a-compilation-of-economic-benefits">The Business of Trails</a></li>
+    <li><a href="https://www.epa.gov/green-infrastructure/economic-benefits-green-infrastructure">Economic Benefits of Green Infrastructure</a></li>
   </ul>
 </div>
 
@@ -120,7 +222,7 @@
     {name:"Monarch Butterfly", scientific:"Danaus plexippus", region:"Throughout NC, more common in WNC", fact:"Travel up to 100 miles a day when migrating", significance:"Each fall, thousands of Monarch butterflies pass through Asheville on their 2,000-mile journey to Mexico.", image:"images/animals/monarch.gif"},
     {name:"American Black Bear", scientific:"Ursus americanus", region:"Western NC forests, sometimes found on the coast", fact:"Have been clocked at 35 miles per hour", significance:"Asheville has one of the highest rates of urban black bear encounters in the country", image:"images/animals/blackbear.gif"},
     {name:"Firefly", scientific:"Lampyridae", region:"Statewide", fact:"Over 1,900 species of fireflies in the world", significance:"Insect control and Bioindicators", image:"images/animals/fireflyfinal.gif"},
-    {name:"Great Blue Heron", scientific:"Ardea herodias", region:"Statewide", fact:"They are one of North Carolina’s most frequently seen wading birds, living near environments such as shores and rivers. ", significance:"Bioindicator", image:"images/animals/heron.gif"},
+    {name:"Great Blue Heron", scientific:"Ardea herodias", region:"Statewide", fact:"They are one of North Carolina’s most frequently seen wading birds, living near environments such as shores and rivers.", significance:"Bioindicator", image:"images/animals/heron.gif"},
   ];
 
   const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
@@ -140,3 +242,9 @@
 
 </body>
 </html>
+
+
+
+
+
+
